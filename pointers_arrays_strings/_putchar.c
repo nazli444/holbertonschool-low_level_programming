@@ -2,11 +2,10 @@
 #include "main.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * _putchar - ekrana bir simvol çap edir
+ * @c: çap olunacaq simvol
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: uğurla 1, səhv olduqda -1
  */
 int _putchar(char c)
 {
