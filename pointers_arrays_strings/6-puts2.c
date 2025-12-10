@@ -1,17 +1,20 @@
 #include "main.h"
 
 /**
- * puts2 - prints every other character of a string, starting with the first
- * @str: string to print
+ * _puts - string çap edir və sonda newline əlavə edir
+ * @str: çap olunacaq string
  */
-void puts2(char *str)
+void _puts(char *str)
 {
-	int i;
+    int i = 0;
 
-	if (!str)
-		return;
+    if (!str)  // təhlükəsizlik yoxlaması
+        return;
 
-	for (i = 0; str[i] != '\0'; i += 2)
-		_putchar(str[i]);
-	_putchar('\n');
+    while (str[i] != '\0')  // yalnız \0-a qədər çap et
+    {
+        _putchar(str[i]);
+        i++;
+    }
+    _putchar('\n');  // sonda newline
 }
