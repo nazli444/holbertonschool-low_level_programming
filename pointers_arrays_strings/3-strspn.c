@@ -8,23 +8,23 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-    unsigned int count = 0;
-    char *a;
+	unsigned int count = 0;
+	char *a;
 
-    while (*s)
-    {
-        a = accept;
-        while (*a)
-        {
-            if (*s == *a)
-                break;
-            a++;
-        }
-        if (!*a)
-            return (count);
-        count++;
-        s++;
-    }
+	while (*s)
+	{
+		a = accept;
+		while (*a)
+		{
+			if (*s == *a)
+				break;
+			a++;
+		}
+		if (!*a)
+			return (count);
+		count++;
+		s++;
+	}
 
-    return (count);
+	return (count);
 }
