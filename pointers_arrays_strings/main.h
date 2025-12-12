@@ -16,7 +16,6 @@ unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 int _putchar(char c);
 
-void _putchar(char c);
 void puts2(char *str);
 
 #endif
