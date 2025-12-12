@@ -13,6 +13,8 @@ char *_memcpy(char *dest, char *src, unsigned int n);
 void reverse_array(int *a, int n);
 char *_strchr(char *s, char c);
 unsigned int _strspn(char *s, char *accept);
+char *_strpbrk(char *s, char *accept);
+int _putchar(char c);
 
 void _putchar(char c);
 void puts2(char *str);
