@@ -4,6 +4,7 @@
 /* Function prototypes for Holberton projects */
 
 /* _putchar writes the character c to stdout */
+int _isupper(int c);
 int _putchar(char c);
 
 /* Function prototypes for printing shapes */
