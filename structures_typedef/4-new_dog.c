@@ -1,25 +1,38 @@
 #include <stdlib.h>
 #include "dog.h"
 
-/* custom strlen */
+/**
+ * _strlen - calculates the length of a string
+ * @s: string to measure
+ *
+ * Return: length of the string
+ */
 static size_t _strlen(char *s)
 {
 	size_t len = 0;
 
 	if (!s)
 		return (0);
+
 	while (s[len])
 		len++;
 	return (len);
 }
 
-/* custom strcpy */
+/**
+ * _strcpy - copies a string from src to dest
+ * @dest: destination buffer
+ * @src: source string
+ *
+ * Return: void
+ */
 static void _strcpy(char *dest, char *src)
 {
 	size_t i = 0;
 
 	if (!dest || !src)
 		return;
+
 	while (src[i])
 	{
 		dest[i] = src[i];
