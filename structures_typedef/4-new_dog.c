@@ -1,10 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "dog.h"
 
+/* custom strlen */
+static size_t _strlen(char *s)
+{
+	size_t len = 0;
+
+	if (!s)
+		return (0);
+	while (s[len])
+		len++;
+	return (len);
+}
+
+/* custom strcpy */
+static void _strcpy(char *dest, char *src)
+{
+	size_t i = 0;
+	if (!src || !dest)
+		return;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+}
+
 /**
- * new_dog - creates a new dog
+ * new_dog - creates a new dog without using strlen/strcpy
  * @name: dog's name
  * @age: dog's age
  * @owner: dog's owner
@@ -22,13 +47,13 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/* Copy name */
 	if (name)
 	{
-		d->name = malloc(strlen(name) + 1);  /* +1 for '\0' */
+		d->name = malloc(_strlen(name) + 1);
 		if (!d->name)
 		{
 			free(d);
 			return (NULL);
 		}
-		strcpy(d->name, name);
+		_strcpy(d->name, name);
 	}
 	else
 		d->name = NULL;
@@ -36,14 +61,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/* Copy owner */
 	if (owner)
 	{
-		d->owner = malloc(strlen(owner) + 1);
+		d->owner = malloc(_strlen(owner) + 1);
 		if (!d->owner)
 		{
 			free(d->name);
 			free(d);
 			return (NULL);
 		}
-		strcpy(d->owner, owner);
+		_strcpy(d->owner, owner);
 	}
 	else
 		d->owner = NULL;
