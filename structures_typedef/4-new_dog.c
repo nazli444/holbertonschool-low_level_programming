@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "dog.h"
 
@@ -18,7 +17,8 @@ static size_t _strlen(char *s)
 static void _strcpy(char *dest, char *src)
 {
 	size_t i = 0;
-	if (!src || !dest)
+
+	if (!dest || !src)
 		return;
 	while (src[i])
 	{
@@ -29,7 +29,7 @@ static void _strcpy(char *dest, char *src)
 }
 
 /**
- * new_dog - creates a new dog without using strlen/strcpy
+ * new_dog - creates a new dog
  * @name: dog's name
  * @age: dog's age
  * @owner: dog's owner
@@ -74,6 +74,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 		d->owner = NULL;
 
 	d->age = age;
+
 	return (d);
 }
-
