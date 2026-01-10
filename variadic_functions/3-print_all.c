@@ -2,8 +2,8 @@
 #include <stdio.h>
 
 /**
- * print_all - prints anything based on format
- * @format: types of arguments: c=char, i=int, f=float, s=string
+ * print_all - prints anything based on a format string
+ * @format: string of types: c=char, i=int, f=float, s=string
  */
 void print_all(const char * const format, ...)
 {
@@ -27,12 +27,9 @@ void print_all(const char * const format, ...)
 
 		if (format[i] == 'c' || format[i] == 'i' || format[i] == 'f')
 		{
-			if (format[i] == 'c')
-				printf("%s%c", sep, va_arg(args, int));
-			if (format[i] == 'i')
-				printf("%s%d", sep, va_arg(args, int));
-			if (format[i] == 'f')
-				printf("%s%f", sep, va_arg(args, double));
+			format[i] == 'c' ? printf("%s%c", sep, va_arg(args, int)) : 0;
+			format[i] == 'i' ? printf("%s%d", sep, va_arg(args, int)) : 0;
+			format[i] == 'f' ? printf("%s%f", sep, va_arg(args, double)) : 0;
 			sep = ", ";
 		}
 
