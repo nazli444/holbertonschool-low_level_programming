@@ -18,7 +18,8 @@ int open_from(const char *file_from)
 
 	if (fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		dprintf(STDERR_FILENO,
+			"Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 	return (fd);
@@ -36,7 +37,8 @@ int open_to(const char *file_to)
 
 	if (fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+		dprintf(STDERR_FILENO,
+			"Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 	return (fd);
@@ -50,7 +52,8 @@ void close_fd(int fd)
 {
 	if (close(fd) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO,
+			"Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
@@ -62,7 +65,8 @@ void close_fd(int fd)
  * @file_from: source filename (for error message)
  * @file_to: destination filename (for error message)
  */
-void copy_content(int fd_from, int fd_to, const char *file_from, const char *file_to)
+void copy_content(int fd_from, int fd_to, const char *file_from,
+		const char *file_to)
 {
 	ssize_t r, w;
 	char buffer[BUF_SIZE];
@@ -72,7 +76,8 @@ void copy_content(int fd_from, int fd_to, const char *file_from, const char *fil
 		w = write(fd_to, buffer, r);
 		if (w != r)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			dprintf(STDERR_FILENO,
+				"Error: Can't write to %s\n", file_to);
 			close_fd(fd_from);
 			close_fd(fd_to);
 			exit(99);
@@ -81,7 +86,8 @@ void copy_content(int fd_from, int fd_to, const char *file_from, const char *fil
 
 	if (r == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		dprintf(STDERR_FILENO,
+			"Error: Can't read from file %s\n", file_from);
 		close_fd(fd_from);
 		close_fd(fd_to);
 		exit(98);
@@ -101,7 +107,8 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO,
+			"Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -115,4 +122,3 @@ int main(int ac, char **av)
 
 	return (0);
 }
-
