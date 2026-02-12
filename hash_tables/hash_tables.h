@@ -3,7 +3,14 @@
 
 #include <stddef.h>
 
-/* Hash node structure */
+/**
+ * struct hash_node_s - Node of a hash table
+ * @key: The key, string, unique in the hash table
+ * @value: Value associated with the key
+ * @next: Pointer to the next node in the list
+ *
+ * Description: Node to store key/value pairs for hash table.
+ */
 typedef struct hash_node_s
 {
 	char *key;
@@ -11,14 +18,20 @@ typedef struct hash_node_s
 	struct hash_node_s *next;
 } hash_node_t;
 
-/* Hash table structure */
+/**
+ * struct hash_table_s - Hash table data structure
+ * @size: Size of the array
+ * @array: Array of size @size, each is a pointer to a linked list of nodes
+ *
+ * Description: Hash table to store key/value pairs using chaining.
+ */
 typedef struct hash_table_s
 {
 	unsigned long int size;
 	hash_node_t **array;
 } hash_table_t;
 
-/* Prototypes */
+/* Function prototypes */
 hash_table_t *hash_table_create(unsigned long int size);
 unsigned long int hash_djb2(const unsigned char *str);
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
