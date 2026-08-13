@@ -4,8 +4,8 @@
 
 /**
  * add_node - adds a new node at the beginning of a list
- * @head: pointer to the head of the list
- * @str: string to add
+ * @head: pointer to the first node
+ * @str: string to duplicate
  *
  * Return: address of the new node, or NULL if it failed
  */
@@ -13,7 +13,7 @@ list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new_node;
 
-	if (head == NULL)
+	if (head == NULL || str == NULL)
 		return (NULL);
 
 	new_node = malloc(sizeof(list_t));
@@ -29,7 +29,6 @@ list_t *add_node(list_t **head, const char *str)
 
 	new_node->len = strlen(str);
 	new_node->next = *head;
-
 	*head = new_node;
 
 	return (new_node);
